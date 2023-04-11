@@ -1,0 +1,356 @@
+<?php
+
+$conn = mysqli_connect('localhost','root','','contact_db') or die('connection failed');
+
+if(isset($_POST['submit'])){
+
+   $name = mysqli_real_escape_string($conn, $_POST['name']);
+   $email = mysqli_real_escape_string($conn, $_POST['email']);
+   $number = $_POST['number'];
+   $date = $_POST['date'];
+
+   $insert = mysqli_query($conn, "INSERT INTO `contact_form`(name, email, number, date) VALUES('$name','$email','$number','$date')") or die('query failed');
+
+   if($insert){
+      $message[] = 'appointment made successfully!';
+   }else{
+      $message[] = 'appointment failed';
+   }
+
+}
+
+?>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Dentistella.</title>
+   <link rel='icon' href="images/logo.png" />
+
+   <!-- font awesome cdn link  -->
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+   <!-- bootstrap cdn link  -->
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/4.6.1/css/bootstrap.min.css">
+
+   <!-- custom css file link  -->
+   <link rel="stylesheet" href="css/style.css">
+
+</head>
+<body>
+   
+<!-- header section starts  -->
+
+<header class="header fixed-top">
+
+   <div class="container">
+
+      <div class="row align-items-center justify-content-between">
+         <a href="#home" class="logo"><img class="symbol" src="images/logo.png"  height="30% " width="50px" />dentist<span>Ella.</span></a>
+
+         <nav class="nav">
+            <a href="#home" >home</a>
+            <a href="#about">about</a>
+            <a href="#services">services</a>
+            <a href="#reviews">reviews</a>
+            <a href="#contact">contact</a>
+         </nav>
+
+         <a href="#contact" class="link-btn1">Make Appointment</a>
+
+         <div id="menu-btn" class="fas fa-bars"></div>
+        
+
+      </div>
+
+   </div>
+
+</header>
+
+<!-- header section ends -->
+
+<!-- home section starts  -->
+
+<section class="home" id="home">
+
+   <div class="container">
+
+      <div class="row min-vh-100 align-items-center">
+         <div class="content text-center text-md-left">
+            <h3>Meet your new dentist</h3>
+            <p>Dr Reodrad Jones worked as a honorary Dental Surgeon at L.E.N.D Ruparel Medical Centre Mumbai from Feb 1996 till Oct 1998. He started his Private Practice at above mentioned address in Feb 1998 and has been practising since then</p>
+            <a href="#contact" class="link-btn">Make Appointment</a>
+         </div>
+      </div>
+
+   </div>
+
+</section>
+
+<!-- home section ends -->
+
+<!-- about section starts  -->
+
+<section class="about" id="about">
+
+   <div class="container">
+
+      <div class="row align-items-center">
+
+         <div class="col-md-6 image">
+            <img src="images/about-img.jpg" class="w-100 mb-5 mb-md-0" alt="">
+         </div>
+
+         <div class="col-md-6 content">
+            <span>about us</span>
+            <h3>True Healthcare For Your Family</h3>
+            <p>DentistElla Dental Centre has been practicing in Brampton for over 35 years. 
+               Our philosophy is to treat patients as if they are our own family members.
+               We have a great mall location with extended hours and offer most services in-house.</p>
+            <P>We have a very diverse team and speak many different languages.
+                Our team consists of three doctors and four hygienists. 
+                Our patients like coming because of our friendly team, 
+                familiar faces, and the trust they have in our doctors and staff.
+                 We make people feel comfortable and we go the extra mile to help them with insurance or 
+                 payment plans and our we take time to explain the procedures.</P>   
+            <a href="#contact" class="link-btn">make appointment</a>
+         </div>
+
+      </div>
+
+   </div>
+
+</section>
+
+<!-- about section ends -->
+
+<!-- services section starts  -->
+
+<section class="services" id="services">
+
+   <h1 class="heading">our services</h1>
+
+   <div class="box-container container">
+
+      <div class="box">
+         <img src="images/icon-1.svg" alt="">
+         <h3>Alignment specialist</h3>
+         <p></p>
+      </div>
+
+      <div class="box">
+         <img src="images/icon-2.svg" alt="">
+         <h3>Cosmetic dentistry</h3>
+         <p></p>
+      </div>
+
+      <div class="box">
+         <img src="images/icon-3.svg" alt="">
+         <h3>Oral hygiene experts</h3>
+         <p></p>
+      </div>
+
+      <div class="box">
+         <img src="images/icon-4.svg" alt="">
+         <h3>Root canal specialist</h3>
+         <p></p>
+      </div>
+
+      <div class="box">
+         <img src="images/icon-5.svg" alt="">
+         <h3>Live dental advisory</h3>
+         <p></p>
+      </div>
+
+      <div class="box">
+         <img src="images/icon-6.svg" alt="">
+         <h3>Cavity inspection</h3>
+         <p></p>
+      </div>
+
+   </div>
+
+</section>
+
+<!-- services section ends -->
+
+<!-- process section starts  -->
+
+<section class="process">
+
+   <h1 class="heading">work process</h1>
+
+   <div class="box-container container">
+
+      <div class="box">
+         <img src="images/process-1.png" alt="">
+         <h3>Cosmetic Dentistry</h3>
+         <p></p>
+      </div>
+
+      <div class="box">
+         <img src="images/process-2.png" alt="">
+         <h3>Pediatric Dentistry</h3>
+         <p></p>
+      </div>
+
+      <div class="box">
+         <img src="images/process-3.png" alt="">
+         <h3>Dental Implants</h3>
+         <p></p>
+      </div>
+
+   </div>
+
+</section>
+
+<!-- process section ends -->
+
+<!-- reviews section starts  -->
+
+<section class="reviews" id="reviews">
+
+   <h1 class="heading"> satisfied clients </h1>
+
+   <div class="box-container container">
+
+      <div class="box">
+         <img src="images/pic-1.png" alt="">
+         <p>Dr Reodrad Jones is expertise in dental, I had done my 3M lava crown treatment from him and it was awesome. His work is too clean perfect and never painful. 
+            I live in USA but still I came from far along only to get his treatment. Wish to always stay in touch with the doctor whenever it comes to dental problem</p>
+         <div class="stars">
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star-half-alt"></i>
+         </div>
+         <h3>Fabian</h3>
+         <span>satisfied client</span>
+      </div>
+
+      <div class="box">
+         <img src="images/pic-2.png" alt="">
+         <p>Dr Reodrad Jones and the staff are friendly and caring professionals. He is extremely competent in dentistry and patient care,
+            Meticulous and efficient. Over the years, I've had fillers, crowns, and cleansers. Everything done without any problem or stress. 
+            This includes work done for my mother and cousin's wife. He also uses the latest technology to enhance his services. 
+            I would recommend Dr Brijesh Patel based on successful treatment, advanced clean and comfortable facilities, smart and well 
+            trained staff and a philosophy that pays attention to detail from top to bottom.
+         </p>
+         <div class="stars">
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star-half-alt"></i>
+         </div>
+         <h3>Eirene</h3>
+         <span>satisfied client</span>
+      </div>
+
+      <div class="box">
+         <img src="images/pic-3.png" alt="">
+         <p>Recently I had an accident and broke my tooth. I went to several hospitals to maintain my original teeth but got a negative solution.
+             Then I came to know about Brij Dental Clinic and met Dr. Brijesh S Patel who has 10+ years of experience in dentistry.
+             He is very caring and explained me clear solution to my whole dental problem. He gave me the hope of retaining my original teeth. 
+             Dr Reodrad Jones is very friendly and fixes the appointment schedule we are comfortable with and saved my original tooth. The ambiance looks very nice and clean.</p>
+         <div class="stars">
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas  fa-star"></i>
+         </div>
+         <h3>Altair</h3>
+         <span>satisfied client</span>
+      </div>
+
+   </div>
+
+</section>
+
+<!-- reviews section ends -->
+
+<!-- contact section starts  -->
+
+<section class="contact" id="contact">
+
+   <h1 class="heading">make appointment</h1>
+
+   <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
+      <?php 
+         if(isset($message)){
+            foreach($message as $message){
+               echo '<p class="message"></p>
+      <span>your name :</span>
+      <input type="text" name="name" placeholder="enter your name" class="box" required>
+      <span>your email :</span>
+      <input type="email" name="email" placeholder="enter your email" class="box" required>
+      <span>your number :</span>
+      <input type="number" name="number" placeholder="enter your number" class="box" required>
+      <span>appointment date :</span>
+      <input type="datetime-local" name="date" class="box" required>
+      <input type="submit" value="Book Appointment" name="submit" class="link-btn">
+   </form>  
+
+</section>
+
+<!-- contact section ends -->
+
+<!-- footer section starts  -->
+
+<section class="footer">
+
+   <div class="box-container container">
+
+      <div class="box">
+         <i class="fas fa-phone"></i>
+         <h3>Phone Number</h3>
+         <p>+918569785359</p>
+         <p>+916354987235</p>
+      </div>
+      
+      <div class="box">
+         <i class="fas fa-map-marker-alt"></i>
+         <h3>Our Address</h3>
+         <p>mumbai, india - 400104</p>
+      </div>
+
+      <div class="box">
+         <i class="fas fa-clock"></i>
+         <h3>Opening Hours</h3>
+         <p>10:00 am to 10:00pm</p>
+      </div>
+
+      <div class="box">
+         <i class="fas fa-envelope"></i>
+         <h3>E-mail Address</h3>
+         <p>dentistella.contactas@gmail.com</p>
+         <p>dentistella.help@gmail.com</p>
+      </div>
+
+   </div>
+
+   <div class="credit"> &copy; copyright  <?php echo date('Y'); ?> by <span><a href="https://bit.ly/3ATu35p">Mr. SOUMAN BAG</a></span>  </div>
+
+</section>
+
+<!-- footer section ends -->
+
+
+
+
+
+
+
+
+
+
+<!-- custom js file link  -->
+<script src="js/script.js"></script>
+
+</body>
+</html>
